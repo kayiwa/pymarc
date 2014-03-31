@@ -58,9 +58,7 @@ from the ``245`` field, subfields ``a`` and ``b``. You can access
 
     print record['245']['a']
 
-    Some fields like subjects can repeat. In cases like that you will want
-    to use ``get_fields`` to get all of them as ``pmarc.Field`` objects,
-    which you can then interact with further:
+Some fields like subjects can repeat. In cases like that you will want to use ``get_fields`` to get all of them as ``pmarc.Field`` objects, which you can then interact with further:
 
 .. code:: python
 
@@ -78,19 +76,19 @@ Here’s an example of creating a record and writing it out to a file.
 
 .. code:: python 
 
-        from pymarc import Record, Field record = Record()
-        record.add_field( 
-            Field(
-                tag = ‘245’, 
-                indicators = [‘0’,‘1’], 
-                subfields = [ 
-                    ‘a’, ‘The pragmatic programmer :’, 
-                    ‘b’, ‘from journeyman to master’, 
-                    ‘c’, ‘Andrew Hunt, David Thomas.’ 
-                ])) 
-        out = open(‘file.dat’, ‘w’)
-        out.write(record.as\_marc())
-        out.close()
+    from pymarc import Record, Field record = Record()
+    record.add_field( 
+        Field(
+            tag = ‘245’, 
+            indicators = [‘0’,‘1’], 
+            subfields = [ 
+                ‘a’, ‘The pragmatic programmer :’, 
+                ‘b’, ‘from journeyman to master’, 
+                ‘c’, ‘Andrew Hunt, David Thomas.’ 
+            ])) 
+    out = open(‘file.dat’, ‘w’)
+    out.write(record.as\_marc())
+    out.close()
 
 .. _Understanding MARC: http://www.loc.gov/marc/umb/
 .. _MARC 21 Formats: http://www.loc.gov/marc/marcdocz.html
